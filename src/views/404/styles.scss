@@ -1,0 +1,24 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+body {
+  background-color: #fa9401;
+
+  @include mixins.media(variables.$w-sm) {
+    background-color: #444242;
+  }
+}
+
+.main {
+  @include mixins.full;
+  @include mixins.flex-center();
+  color: #fcfcfc;
+  font-weight: 700;
+
+  span {
+    font-size: 2rem;
+    padding: 25px;
+    border-right: 1px solid #fcfcfc;
+    margin-right: 25px;
+  }
+}

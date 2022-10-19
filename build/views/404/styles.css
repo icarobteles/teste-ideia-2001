@@ -1,0 +1,29 @@
+/* Width */
+/* Height */
+body {
+  background-color: #fa9401;
+}
+@media (min-width: 360px) {
+  body {
+    background-color: #444242;
+  }
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fcfcfc;
+  font-weight: 700;
+}
+.main span {
+  font-size: 2rem;
+  padding: 25px;
+  border-right: 1px solid #fcfcfc;
+  margin-right: 25px;
+}
+
+/*# sourceMappingURL=styles.css.map */

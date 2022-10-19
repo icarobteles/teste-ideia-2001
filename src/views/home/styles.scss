@@ -1,0 +1,233 @@
+@use "../../styles/mixins";
+@use "variables";
+@use "../../styles/variables" as globalVariables;
+
+body {
+  background-color: variables.$bg-color;
+  @include mixins.flex-center(column);
+  justify-content: space-between;
+
+  @include mixins.media(globalVariables.$w-sm) {
+    background-color: #444242;
+  }
+}
+
+.header {
+  width: 100%;
+
+  @include mixins.flex-center();
+  justify-content: space-between;
+
+  &--language {
+    cursor: pointer;
+    @include mixins.flex-center();
+    padding: 5px 12px;
+
+    border-radius: 50px;
+    background-color: variables.$text-color;
+
+    font-size: 0.75rem;
+    text-align: center;
+    color: variables.$label-color;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+
+    div {
+      width: 24px;
+      height: 24px;
+      margin-left: 10px;
+      background: none;
+      border: none;
+
+      @include mixins.bg-image("../../../public/assets/ptBR.svg");
+    }
+
+    span {
+      margin-left: 10px;
+      width: 10px;
+      height: 5px;
+      @include mixins.bg-image("../../../public/assets/angle-down.svg");
+    }
+  }
+
+  &--menu {
+    cursor: pointer;
+    width: 24px;
+    height: 20px;
+
+    @include mixins.flex-center(column);
+    justify-content: space-between;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+
+    hr {
+      border: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 25px;
+
+      background-color: variables.$text-color;
+    }
+  }
+}
+
+.main {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 265px;
+
+  @include mixins.flex-center(column);
+
+  &--logo {
+    width: 90%;
+    max-width: 238.5px;
+    height: 75px;
+    @include mixins.bg-image("../../../public/assets/logo.svg");
+    margin-bottom: 50px;
+  }
+
+  &--nav {
+    width: 100%;
+
+    ul {
+      width: 100%;
+      @include mixins.flex-center();
+      flex-wrap: wrap;
+    }
+
+    &--item {
+      width: 100%;
+      max-width: 265px;
+      height: 50px;
+      list-style: none;
+      @include mixins.flex-center();
+
+      border-radius: 50px;
+      margin-bottom: 15px;
+
+      background-color: variables.$button-bg-secondary-color;
+      color: variables.$text-color;
+      border: 2px solid variables.$button-border-secondary-color;
+      @include mixins.media(globalVariables.$w-sm) {
+        border: 1px solid #fa9401;
+        background: #444242;
+      }
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+
+      a {
+        @include mixins.full;
+        @include mixins.flex-center();
+      }
+
+      a span {
+        margin-right: 11px;
+        width: 16px;
+        height: 16px;
+      }
+
+      &:first-child {
+        background-color: variables.$button-bg-primary-color;
+        border: 2px solid variables.$button-border-primary-color;
+
+        @include mixins.media(globalVariables.$w-sm) {
+          border: none;
+        }
+
+        a span {
+          @include mixins.bg-image("../../../public/assets/searchbox.svg");
+        }
+      }
+
+      &:nth-child(2) a span {
+        @include mixins.bg-image("../../../public/assets/releases.svg");
+      }
+
+      &:nth-child(3) a span {
+        @include mixins.bg-image("../../../public/assets/cart.svg");
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+
+        a span {
+          @include mixins.bg-image("../../../public/assets/contact.svg");
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 64px;
+
+  @include mixins.flex-center();
+
+  nav ul {
+    width: 100%;
+    @include mixins.flex-center();
+  }
+
+  &--item {
+    list-style: none;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+
+    @include mixins.flex-center();
+    margin-right: 15px;
+
+    a {
+      width: 30px;
+      height: 30px;
+      @include mixins.bg-image("../../../public/assets/facebook.svg");
+    }
+
+    &:first-child a {
+      @include mixins.bg-image("../../../public/assets/website.svg");
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      a {
+        @include mixins.bg-image("../../../public/assets/instagram.svg");
+      }
+    }
+  }
+}
+
+@include mixins.max-media(globalVariables.$h-sm, height) {
+  @include mixins.media(globalVariables.$w-md) {
+    .main {
+      max-width: 545px;
+
+      &--nav ul {
+        height: 115px;
+        flex-direction: row;
+        justify-content: space-between;
+
+        li {
+          margin-bottom: 0;
+        }
+
+        li:first-child,
+        li:nth-child(2) {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  .footer {
+    visibility: hidden;
+  }
+}
